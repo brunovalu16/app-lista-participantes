@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     },
 
     input: {
-        height: 56,
         backgroundColor: '#24212b',
         color: '#7f7f7f',
         paddingLeft: 10,
