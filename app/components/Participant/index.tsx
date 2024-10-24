@@ -6,16 +6,24 @@ import { Ionicons } from '@expo/vector-icons';
 import { styles } from './styles'
 
 
-export default function Participant() {
+//estou tipando a função "Participant"
+type Props = {
+    name: string;
+    onRemove: () => void;
+}
+
+
+export default function Participant({ name, onRemove }: Props) {
+
     return(
         <View style={styles.container}>
             <Text style={styles.name}>
-                Bruno Valú
+                { name }
             </Text>
 
-            <TouchableOpacity style={styles.button2} >
+            <TouchableOpacity style={styles.button2} onPress={onRemove}>
                 <Text style={styles.buttonText2}>
-                    <Ionicons style={styles.iconadd2}name="remove" size={32} />
+                    <Ionicons style={styles.iconadd2} name="remove-outline" />
                 </Text>
             </TouchableOpacity>
         </View>

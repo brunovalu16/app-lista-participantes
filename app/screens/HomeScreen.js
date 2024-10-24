@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, FlatList} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -12,15 +12,22 @@ import Participant, { Paritipant } from '../components/Participant/index'
 export default function HomeScreen() { 
 
 
+  //"Scrow View"componente do react native para criar lista
+  const participants = [ 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú',
+    'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú', 'Bruno Valú' ]
 
-  //criando a função onPress={handParticipantAdd}
+  //criando a função onPress={handParticipantAdd} - add participante
   function handParticipantAdd() {
     Alert.alert('add um novo participante')
   }
 
+  //criando a função onPress={handParticipantRemove} - Remover participante
+  function handParticipantRemove() {
+
+  }
 
   return (
-    <View style={styles.container}>
+  <View style={styles.container}>
       <Text style={styles.eventName}>
         Nome do Evento
       </Text>
@@ -42,10 +49,29 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        <Participant />
-        <Participant />
-
         
-    </View>
+
+        <FlatList
+            data={participants}
+            keyExtractor={item => item}
+            renderItem={({ item }) => (
+           
+          <Participant
+                key={item}
+                name={item}
+                onRemove={() => handParticipantRemove("Bruno Valu")}
+              />
+            )} 
+
+            showVerticalScrollIndicator={false} 
+            ListEmptyComponent={() => (
+              <Text style={styles.listEmptyText}>
+                  Adicione participantes do evento.
+              </Text>
+            )}
+            />
+
+    </View>  
+  
   );
 }

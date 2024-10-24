@@ -33,6 +33,6 @@ export const styles = StyleSheet.create({
 
     iconadd2: {
         color: '#fff',
-        
+        fontSize: 30,
     },
 }) 

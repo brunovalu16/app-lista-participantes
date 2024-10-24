@@ -56,6 +56,12 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingTop: 20,
         marginBottom: 42
+    },
+
+    listEmptyText: {
+        color: '#7f7f7f',
+        fontSize: 14,
+        textAlign: 'center'
     }
 
 });
